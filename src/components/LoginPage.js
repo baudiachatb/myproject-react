@@ -2,17 +2,6 @@ import React, {Component} from "react";
 
 
 class LoginPage extends Component {
-    loginAction = () => {
-        return this.props.login(
-            {
-                id: 'test',
-                userName: 'test1',
-                token: 'bearer abcdxyz',
-                authorization: true
-            }
-        )
-    };
-
     render() {
         return (
             <div className="b-loginpage">
@@ -20,7 +9,16 @@ class LoginPage extends Component {
                     login page!
                 </p>
                 <p>
-                    <button onClick={this.loginAction}>
+                    <button onClick={() => {
+                        this.props.login(
+                            {
+                                id: 'test',
+                                userName: 'test1',
+                                token: 'bearer abcdxyz',
+                                authorization: true
+                            }
+                        )
+                    }}>
                         login
                     </button>
                 </p>
