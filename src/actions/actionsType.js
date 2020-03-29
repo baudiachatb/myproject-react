@@ -1,0 +1,7 @@
+
+
+const LOGIN_USER = "LOGIN_USER";
+
+
+
+exports.LOGIN_USER = LOGIN_USER

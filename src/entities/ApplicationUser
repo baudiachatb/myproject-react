@@ -1,0 +1,7 @@
+let ApplicationUser = {
+    id: null,
+    userName: null,
+    authorization: false
+}
+
+export default ApplicationUser;
