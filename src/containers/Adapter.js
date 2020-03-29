@@ -10,7 +10,7 @@ class Adapter extends Component {
         if (this.props.appUser["authorization"] === true) {
             return this.props.children;
         } else {
-            return <SignUp/>
+            return <LoginPage/>
         }
     };
 
