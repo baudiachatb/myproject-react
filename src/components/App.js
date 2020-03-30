@@ -11,12 +11,12 @@ function App(props) {
                 Hello World!
                 <p>
                 {
-                    props.user.id
+                    // props.user.id
                 }
             </p>
                 <p>
                     {
-                        props.user.authorization.toString()
+                        // props.user.authorization.toString()
                     }
                 </p>
             </AdapterContainer>

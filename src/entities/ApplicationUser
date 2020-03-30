@@ -1,7 +1,11 @@
-let ApplicationUser = {
+const ApplicationUser = {
     id: null,
-    userName: null,
-    authorization: false
-}
+    firstName: null,
+    lastName: null,
+    email: null,
+    username: null,
+    password: null,
+    user_description: null,
+};
 
 export default ApplicationUser;
