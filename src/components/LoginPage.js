@@ -110,15 +110,11 @@ export default function SignIn() {
                             </Link>
                         </Grid>
                     </Grid>
-                    <Button
-                        fullWidth
-                    >
-                        <GoogleLogin onSuccess={onGoogleLoginSuccess}
-                                     onFailure={onGoogleLoginSuccess}
-                                     clientId={'486030383439-u2heo6q9nqql23u608bqjhj54i9qudco.apps.googleusercontent.com'}>
+                    <GoogleLogin onSuccess={onGoogleLoginSuccess}
+                                 onFailure={onGoogleLoginSuccess}
+                                 clientId={'486030383439-u2heo6q9nqql23u608bqjhj54i9qudco.apps.googleusercontent.com'}>
 
-                        </GoogleLogin>
-                    </Button>
+                    </GoogleLogin>
                 </form>
             </div>
             <Box mt={8}>
