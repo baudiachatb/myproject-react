@@ -1,20 +1,22 @@
-import {ofType} from "redux-observable";
 import actionsType from "../actions/actionsType";
-import {map, mapTo} from 'rxjs/operators';
-import ApplicationUser from "../entities/ApplicationUser";
-import UserResource from "../resources/UserResource";
+import {filter, switchMap, take, tap} from 'rxjs/operators';
+import LoginState from "../entities/LoginState";
+import {of} from "rxjs";
 
-const userResource = new UserResource(ApplicationUser)
 export const loginEpic = action$ => action$.pipe(
-    ofType(actionsType.LOGIN_USER),
-    map(action => action.type),
-    mapTo(payload => {
-        return {
+    filter(action => action.type === actionsType.LOGIN_USER),
+    take(1),
+    tap(data => {
+        console.log(data);
+    }),
+    switchMap(data => {
+        const statelogin = LoginState;
+        statelogin.authorization = true;
+        return of({
             type: actionsType.LOGIN_USER_SUCESS,
             user_sucess: {
-                authorization: true,
-                token: null
+                authorization: true
             }
-        }
+        })
     })
 );

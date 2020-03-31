@@ -12,7 +12,7 @@ export default (state, action) => {
         case actionTypes.LOGIN_USER:
             return action.user;
         case actionTypes.LOGIN_USER_SUCESS:
-            return  action.user_success;
+            return  action.user_sucess;
         default:
             return initialState;
     }

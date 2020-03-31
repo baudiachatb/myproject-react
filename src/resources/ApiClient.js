@@ -1,31 +1,58 @@
-import axios from 'axios'
+import {ajax} from 'rxjs/ajax';
 
 const host = "http://localhost:9000";
+const headers = {
+    'Content-Type': 'application/json',
+    'authorization': localStorage.getItem('b-app-user-token')
+};
+const serialize = function (obj) {
+    let str = [];
+    for (let p in obj)
+        if (obj.hasOwnProperty(p)) {
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+    return str.join("&");
+}
 const ApiClient = {
     getById: (id, path) => {
-        return axios.get(host + path, {
-            params: [{id: id}]
+        return ajax({
+            url: host + path,
+            method: 'GET',
+            headers: headers,
         })
     },
 
-    getByField:(param, path) => {
-      return axios.get(host+path, {
-          params: [param],
-          headers: [{
-              Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODY0NDkxN…vNCJ9.XN1xU5zZ7tIAvI4iV1FfXNiU9ekpEHsxVf0gfMDmuCU'
-          }]
-      })
+    getByField: (param, path) => {
+        return ajax({
+            url: host + path + serialize(param),
+            method: 'GET',
+            headers: headers
+        })
     },
 
     getAll: (path) => {
-        return axios.get(host + path)
+        return ajax({
+            url: host + path,
+            method: 'GET',
+            headers: headers
+        });
     },
 
     put: (path, entity) => {
-        return axios.put(host + path, entity)
+        return ajax({
+            url: host + path,
+            method: 'PUT',
+            headers: headers,
+            body: entity
+        });
     },
     post: (path, entity) => {
-        return axios.post(host + path, entity);
+        return ajax({
+            url: host + path,
+            method: 'POST',
+            headers: headers,
+            body: entity
+        });
     }
 };
 

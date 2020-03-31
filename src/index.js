@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App1 from './components/App';
 import * as serviceWorker from './serviceWorker';
 import {createStore, applyMiddleware} from 'redux'
 import allReducer from "./reducers";
@@ -11,6 +10,7 @@ import {rootEpic} from "./Epics";
 import AppContainer from "./containers/App-container";
 const epicMiddleware = createEpicMiddleware();
 const store = createStore(allReducer, applyMiddleware(epicMiddleware));
+require('dotenv').config();
 ReactDOM.render(
     <Provider store={store}>
         <AppContainer/>
