@@ -7,13 +7,16 @@ import LoginState from "../entities/LoginState";
 const initialState = LoginState;
 
 
-export default (state, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.LOGIN_USER:
+            console.log(action);
             return action.user;
         case actionTypes.LOGIN_USER_SUCESS:
+            console.log(action);
             return  action.user_sucess;
         default:
-            return initialState;
+            console.log(state);
+            return state;
     }
 }

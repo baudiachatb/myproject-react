@@ -22,7 +22,8 @@
     "redux-saga": "^1.1.3",
     "rxjs": "^6.5.4",
     "sockjs-client": "latest",
-    "stompjs": "^2.3.3"
+    "stompjs": "^2.3.3",
+    "classnames": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -12,7 +12,7 @@ const serialize = function (obj) {
             str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
         }
     return str.join("&");
-}
+};
 const ApiClient = {
     getById: (id, path) => {
         return ajax({
@@ -26,7 +26,7 @@ const ApiClient = {
         return ajax({
             url: host + path + serialize(param),
             method: 'GET',
-            headers: headers
+            headers: headers,
         })
     },
 

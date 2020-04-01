@@ -7,17 +7,7 @@ function App(props) {
     return (
         <div className="App">
             <AdapterContainer>
-                Hello World!
-                <p>
-                {
-                    // props.user.id
-                }
-            </p>
-                <p>
-                    {
-                        // props.user.authorization.toString()
-                    }
-                </p>
+                Hello world
             </AdapterContainer>
         </div>
     );
