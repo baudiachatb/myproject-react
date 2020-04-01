@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-// import SockJsClient from 'react-stomp';
 import Stomp  from 'stompjs';
 import SockJS from 'sockjs-client';
 

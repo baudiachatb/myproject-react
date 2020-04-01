@@ -1,18 +1,18 @@
-import {LOGIN_USER, LOGIN_USER_SUCESS} from "../actions/actionsType";
-import ApplicationUser from "../entities/ApplicationUser";
+import actionTypes from "../actions/actionsType";
+import LoginState from "../entities/LoginState";
 
 /**
  * Create By BauNV on 21/03/2020
  */
-const initialState = ApplicationUser;
+const initialState = LoginState;
 
 
 export default (state, action) => {
     switch (action.type) {
-        case LOGIN_USER:
+        case actionTypes.LOGIN_USER:
             return action.user;
-        case LOGIN_USER_SUCESS:
-            return  action.user_success;
+        case actionTypes.LOGIN_USER_SUCESS:
+            return  action.user_sucess;
         default:
             return initialState;
     }

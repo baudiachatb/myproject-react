@@ -4,9 +4,9 @@ import {connect} from "react-redux";
 import LoginPage from "../components/LoginPage";
 
 function mapDispathToProps(dispatch) {
-    return bindActionCreators({
-        login: LoginAction
-    }, dispatch);
+    return {
+        loginUser: bindActionCreators(LoginAction.loginUser, dispatch)
+    }
 
 }
 

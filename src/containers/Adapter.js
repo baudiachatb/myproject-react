@@ -1,15 +1,15 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux'
 import {bindActionCreators} from "redux";
-import ChatPage from "../components/ChatPage";
 import loginUser from "../actions/User-action";
+import LoginPageContainer from "./LoginPage-container";
 
 class Adapter extends Component {
     setDis() {
         if (this.props.appUser["authorization"] === true) {
             return this.props.children;
         } else {
-            return <ChatPage/>
+            return <LoginPageContainer/>
         }
     };
 

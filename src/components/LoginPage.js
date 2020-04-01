@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignIn() {
+export default function SignIn({ loginUser }) {
     const classes = useStyles();
     const onGoogleLoginSuccess = (response) => {
         console.log(response);
@@ -62,7 +62,10 @@ export default function SignIn() {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} noValidate onSubmit={(e) => {
+                    e.preventDefault();
+                    loginUser({authorization: true})
+                }}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -110,15 +113,11 @@ export default function SignIn() {
                             </Link>
                         </Grid>
                     </Grid>
-                    <Button
-                        fullWidth
-                    >
-                        <GoogleLogin onSuccess={onGoogleLoginSuccess}
-                                     onFailure={onGoogleLoginSuccess}
-                                     clientId={'486030383439-u2heo6q9nqql23u608bqjhj54i9qudco.apps.googleusercontent.com'}>
+                    <GoogleLogin onSuccess={onGoogleLoginSuccess}
+                                 onFailure={onGoogleLoginSuccess}
+                                 clientId={'486030383439-u2heo6q9nqql23u608bqjhj54i9qudco.apps.googleusercontent.com'}>
 
-                        </GoogleLogin>
-                    </Button>
+                    </GoogleLogin>
                 </form>
             </div>
             <Box mt={8}>
